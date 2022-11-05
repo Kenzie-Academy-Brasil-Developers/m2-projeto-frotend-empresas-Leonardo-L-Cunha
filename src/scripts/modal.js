@@ -1,5 +1,6 @@
-import {dataUser,editProfileAdm,deleteUser,departCreate,editDepart,deleteDepart } from "./request.js"
-import { creatUsers,nameEmpre,render } from "../pages/admpage/index.js"
+import {editProfileAdm,deleteUser,departCreate,editDepart,deleteDepart,hiredEmployer,firedEmployer } from "./request.js"
+import { creatUsers,nameEmpre,nameNotHire,render} from "../pages/admpage/index.js"
+
 
 
 const modalAdmEdit = () => {
@@ -252,8 +253,128 @@ const modalDelDepart = () => {
     return modal
 
 }
+
+const seeModal = async () => {
+    const dataDepart = await JSON.parse(localStorage.getItem("deparUser"))
+    const hire = await JSON.parse(localStorage.getItem("hired"))
+
+    const modal = document.createElement("dialog")
+    const divContainer = document.createElement("div")
+    const h2 = document.createElement("h2")
+    const buttonClose = document.createElement("button")
+    const divHead = document.createElement("div")
+    const divText = document.createElement("div")
+    const divSelect = document.createElement("div")
+    const h3 = document.createElement("h3")
+    const pName = document.createElement("p")
+    const buttonHire = document.createElement("button")
+    const select = await nameNotHire()
+    const ul = document.createElement("ul")
+    ul.classList.add("card-overflow")
+    
+    
+    
+    modal.classList.add("modal")
+    buttonClose.classList.add("btn-close")
+    divContainer.classList.add("see-container")
+    divHead.classList.add("see-box-head")
+    divText.classList.add("see-text")
+    divSelect.classList.add("see-select")
+    buttonHire.classList.add("btn-hire")
+
+    h2.innerText = dataDepart.name
+    h3.innerText = dataDepart.description
+    pName.innerText = dataDepart.companies.name
+    buttonHire.innerText = "Contratar"
+    buttonClose.innerText = "X" 
+    
+   const dados = hire.filter((element) => {
+        if(dataDepart.uuid == element.department_uuid){
+            return element
+        }
+   })
+   dados.forEach(element => {
+    const li = document.createElement("li")
+    const h3 = document.createElement("h3")
+    const pLevel = document.createElement("p")
+    const span = document.createElement("span")
+    const button = document.createElement("button")
+    
+
+    li.classList.add("card-see-modal")
+    button.classList.add("btn-off")
+    button.id = element.uuid
+
+    h3.innerText = element.username
+    pLevel.innerText = element.professional_level
+    span.innerText = "Company Name"
+    button.innerText = "Desligar"
+
+    li.append(h3,pLevel,span,button)
+    ul.appendChild(li)
+
+    button.addEventListener("click", async () => {
+        await firedEmployer(button.id)
+        window.location.reload("/src/pages/admpage/index.html")
+        
+    })
+   });
+
+    buttonHire.addEventListener("click", async()=> {
+        const body = {}
+        body ["user_uuid"] = select.value
+        body ["department_uuid"] = dataDepart.uuid
+        await hiredEmployer(body)
+        window.location.reload("/src/pages/admpage/index.html")
+    })
+    buttonClose.addEventListener("click", ()=> {
+        modal.close()
+       
+
+
+    })
+
+    divText.append(h3,pName)
+    divSelect.append(select,buttonHire)
+    divHead.append(divText,divSelect)
+    divContainer.append(h2,buttonClose,divHead,ul)
+    modal.appendChild(divContainer)
+
+    return modal
+
+
+
+}
+seeModal()
+/*
+<dialog class="modal">
+        <div class="see-container">
+            <h2>Nome do departamento</h2>
+            <div class="see-box-head">
+                <div class="see-text">
+                    <h3>Descrição do departamento</h3>
+                    <p>Empresa pertencente</p>
+                </div>
+                <div class="see-selec">
+                    <select>
+                        <option value="">Selecionar usuario</option>
+                    </select>
+                    <button>Contratar</button>
+                </div>
+            </div>
+            <ul class="card-overflow">
+                <li class="card-modal">
+                    <h3></h3>
+                    <p></p>
+                    <span></span>
+                    <button>Desligar</button>
+                </li>
+            </ul>
+        </div>
+    </dialog>
+*/
 export 
 {
-    modalAdmEdit,modalDelUser,
-    createDepartment,editDescript,modalDelDepart
+    modalAdmEdit,modalDelUser,createDepartment,
+    editDescript,modalDelDepart,seeModal
 }

@@ -239,10 +239,70 @@ const deleteDepart = async (id) => {
         console.log(err)
     }
 }
+const listEmployerNotHire = async () => {
+    try{
+        const request = await fetch(`${baseUrl}admin/out_of_work`,{
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+        const response = await request.json()
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+const hiredEmployer = async(body) => {
+    try{
+        const request = await fetch(`${baseUrl}departments/hire/`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+        const response = await request.json()
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+const employerPerDepart = async  () => {
+    try{
+        const request = await fetch(`${baseUrl}users/departments/coworkers`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+        const response = await request.json()
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+const firedEmployer = async (id) => {
+    try{
+        const request = await fetch(`${baseUrl}departments/dismiss/${id}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token.token}`
+            }
+        })
+        const response = await request.json()
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
 export {
     listSector, register,login,
     dataUser,editProfile,allDepart,
     departPerId,allUsers,editProfileAdm,
     deleteUser,departCreate,editDepart,
-    deleteDepart
+    deleteDepart,listEmployerNotHire,hiredEmployer,
+    employerPerDepart,firedEmployer
 }

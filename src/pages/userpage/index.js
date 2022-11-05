@@ -12,8 +12,6 @@ const getOut =  () => {
     })
 }
 
-
-
 const renderName =  async () => {
     const data  = await JSON.parse(localStorage.getItem("dataUser"))
     const div = document.querySelector(".box-card-head")
@@ -140,6 +138,7 @@ const verifyPermission =  async () => {
     
 }
 verifyPermission()
+
 
 
 

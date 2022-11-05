@@ -90,3 +90,27 @@
     color: var(--color-white);
     cursor: pointer;
 }
+.btn-hire{
+    width: 157px;
+    height: 48px;
+    color: var(--color-white);
+    background-color: var(--color-green);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+.btn-off{
+    width: 157px;
+    height: 48px;
+    color: var(--color-red);
+    border: solid 1px var(--color-red);
+    background-color: var(--color-white);
+    cursor: pointer;
+    margin-left: 45px;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}

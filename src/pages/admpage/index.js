@@ -1,11 +1,14 @@
-import { listSector,allDepart,departPerId,allUsers } from "../../scripts/request.js"
-import { modalAdmEdit,modalDelUser,createDepartment,editDescript,modalDelDepart } from "../../scripts/modal.js"
+import { listSector,allDepart,departPerId,allUsers,listEmployerNotHire,employerPerDepart} from "../../scripts/request.js"
+import { modalAdmEdit,modalDelUser,createDepartment,editDescript,modalDelDepart,seeModal } from "../../scripts/modal.js"
 const getOut =  () => {
     const logout = document.querySelector(".btn-logout")
 
     logout.addEventListener("click", ()=> {
         localStorage.removeItem("user")
         localStorage.removeItem("dataUser")
+        localStorage.removeItem("hired")
+        localStorage.removeItem("deparUser")
+        localStorage.removeItem("deparUserDel")
         window.location.replace("/src/pages/homepage/index.html")
     })
 }
@@ -61,6 +64,28 @@ const nameEmpre = async() => {
     
     return select
 }
+const nameNotHire = async () => {
+    const data = await listEmployerNotHire()
+    
+
+    const select = document.createElement("select")
+    const optionEmpr = document.createElement("option")
+    optionEmpr.innerText = "Selecionar usuario"
+    select.classList.add("inputs")
+    
+   
+    data.forEach((element) => {
+        const options = document.createElement("option")
+        options.value = element.uuid
+        options.innerText = element.username
+        select.append(optionEmpr,options)
+    })
+       
+       
+       
+     return select
+}
+
 
 
 const creatDepart = (body) => {
@@ -82,6 +107,14 @@ const creatDepart = (body) => {
         buttonEdit.classList.add("edit")
         buttonDelete.classList.add("delete")
 
+        buttonSee.addEventListener("click", async ()=> {
+            localStorage.setItem("deparUser",JSON.stringify(element))
+            const body = document.querySelector("body")
+            const modal = await seeModal()
+            body.appendChild(modal)
+            modal.showModal()
+        })
+        
         buttonEdit.addEventListener("click", ()=> {
             localStorage.setItem("deparUser",JSON.stringify(element))
             const body = document.querySelector("body")
@@ -127,6 +160,7 @@ render()
 
 const creatUsers = async ()=> {
     const data = await allUsers()
+    localStorage.setItem("hired",JSON.stringify(data))
     const ul = document.getElementById("users-content")
     ul.innerHTML = ""
 
@@ -169,7 +203,7 @@ const creatUsers = async ()=> {
         ul.appendChild(li)
     })
 }
-creatUsers()
+await creatUsers()
 const openModal = ()=> {
     const button = document.getElementById("create")
 
@@ -181,4 +215,18 @@ const openModal = ()=> {
     })
 }
 openModal()
-export {creatUsers,nameEmpre,render}
+// const listEmployer = async (users) => {
+    
+    
+//     const ul = document.createElement("ul")
+//     ul.classList.add("card-overflow")
+
+    
+    
+
+    
+ 
+//     return ul
+
+// }
+export {creatUsers,nameEmpre,render,nameNotHire}
