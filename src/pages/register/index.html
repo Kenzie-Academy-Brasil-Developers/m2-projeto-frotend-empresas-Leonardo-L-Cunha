@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/pages/register/index.css">
+    <link rel="stylesheet" href="/src/styles/goblalStyless.css">
+    <link rel="stylesheet" href="/src/styles/buttos.css">
+    <link rel="stylesheet" href="/src/styles/input.css">
+    <link rel="stylesheet" href="/src/styles/popUp.css">
+    <title>Register</title>
+</head>
+<body>
+    <header class="head">
+        <div class="container">
+            <nav>
+                <div class="box-logo">
+                    <img src="/src/img/Ellipse 1.png" alt="">
+                    <h3>Kenzie Empresas</h3>
+                </div>
+                <img class="open-close" src="/src/img/Vector.png" alt="">
+                <div class="box-btn">
+                    <a href="/src/pages/homepage/index.html" class="btn-login">Home</a>
+                    <a href="/src/pages/login/index.html" class="btn-register">Login</a>
+                </div>
+            </nav>
+    </header>
+            <main class="main-content">
+                <section class="register-container">
+                    <h2>Cadastre-se</h2>
+                    <form id="register" class="form-box">
+                        <input id="username" class="inputs" type="text" placeholder="Seu nome" required="true">
+                        <input id="password" class="inputs" type="password" placeholder="Sua senha" required="true">
+                        <input id="email" class="inputs" type="email" placeholder="Seu e-mail" required="true">
+                        <select id="professional_level" class="inputs">
+                            <option  value="">Nivel Profissional</option>
+                            <option  value="junior">Junior</option>
+                            <option  value="pleno">Pleno</option>
+                            <option  value="sênior">Senior</option>
+                        </select>
+                        <button type="submit" class="btn-register-2">Cadastra-se</button>
+                        <a class="btn-back" href="/src/pages/login/index.html">Retonar</a>
+                    </form>
+                </section>
+            </main>
+        </div>
+    <script type="module" src="/src/pages/register/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+.head{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.container{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}   
+nav{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px;
+}
+.box-logo{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    
+}
+.box-btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: -150%;
+    pointer-events: none;
+}
+.main-content{
+    margin-top: 24px;
+}
+.main-head{
+    width: 100%;
+    height: 121px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 24px;
+}
+.box-card-head{
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+.box-text-head{
+    display: flex;
+    gap: 250px;
+}
+#edit-user{
+    width: 28px;
+    height: 28px;
+    background-color: #ffff;
+    border: none;
+    background-image: url(/src/img/caneta.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#edit-user:hover{
+    background-image: url(/src/img/caneta\ hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-sect{
+    width: 100%;
+    height: 467px;
+    background-color: #f8f8f8;
+    border: 1px solid #A8A8A8;
+    margin-top: 44px;
+}
+.not-hire{
+    text-align: center;
+    margin-top: 200px;
+}
+.name-empre{
+    width: 100%;
+    background-color: var(--color-brand-1);
+    color: var(--color-white);
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px 54px;
+    list-style: none;
+    padding: 58px 54px 13px 59px;
+}
+.card{
+    Width:318px;
+    Height:76px;
+    padding: 12px 0px 12px 24px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--color-brand-1);
+    background-color: var(--color-white);
+    gap: 8px;
+}
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+dialog{
+    position: fixed;
+    border: none;
+    box-shadow: 0 0 1em rgba(0 0 0 / 3);
+    margin: auto;
+}
+.card-modal{
+    width: 506px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 24px;
+}
+.btn-close{
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    background-color: var(--color-white);
+    width: 17.63px;
+    height: 17.63px;
+    border: none;
+    cursor:pointer;
+}
+.form-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 14px;
+}

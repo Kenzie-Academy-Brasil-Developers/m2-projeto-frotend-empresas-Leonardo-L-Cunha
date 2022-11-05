@@ -1,0 +1,151 @@
+.head{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.container{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}   
+nav{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px;
+}
+.box-logo{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    
+}
+.depart{
+    display: flex;
+    flex-direction: column;
+}
+.main-content{
+    margin-bottom: 50px;
+}
+.box-main-head{
+    width: 100%;
+    display: flex;
+   justify-content: space-between;
+   padding: 24px;
+   align-items: center;
+    
+}
+.box-option{
+    width: 282px;
+    height: 32px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: -70px;
+}
+.depart-container{
+    background-color: #f8f8f8;
+    display: flex;
+    gap: 28px 64px;
+    width: 100%;
+    height: 385px;
+    padding: 24px 0px 0px 56px;
+    list-style: none;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+.card-depart{
+    background-color: var(--color-white);
+    width: 489px;
+    height: 196px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-bottom: solid 1px var(--color-brand-1);
+}
+.box-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.see{
+    background-image: url(/src/img/see.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+.edit{
+    background-image: url(/src/img/caneta.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: var(--color-white);
+    cursor: pointer;
+
+}
+.edit:hover{
+    background-image: url(/src/img/caneta\ hover.png);
+}
+.delete{
+    background-image: url(/src/img/lixeira.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: var(--color-white);
+    cursor: pointer;
+}
+.text-center{
+    text-align: center;
+    margin-top: 16px;
+}
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+dialog{
+    position: fixed;
+    border: none;
+    box-shadow: 0 0 1em rgba(0 0 0 / 3);
+    margin: auto;
+}
+.card-modal{
+    width: 506px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 24px;
+    gap: 20px;
+}
+.btn-close{
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    background-color: var(--color-white);
+    width: 17.63px;
+    height: 17.63px;
+    border: none;
+    cursor:pointer;
+}
+.form-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 14px;
+}
+.center-del{
+    width: 419px;
+    height: 84px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+}

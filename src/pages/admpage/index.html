@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/pages/admpage/index.css">
+    <link rel="stylesheet" href="/src/styles/goblalStyless.css">
+    <link rel="stylesheet" href="/src/styles/buttos.css">
+    <link rel="stylesheet" href="/src/styles/input.css">
+    <title>Adm Page</title>
+</head>
+<body>
+    <header class="head">
+        <div class="container">
+            <nav>
+                <div class="box-logo">
+                    <img src="/src/img/Ellipse 1.png" alt="">
+                    <h3>Kenzie Empresas</h3>
+                </div>
+                <button class="btn-logout">Logout</button>
+            </nav>
+    </header>
+    <main class="main-content container">
+        <section class="depart">
+            <div class="box-main-head">
+                <h2>Departamentos</h2>
+                <select  class="box-option">
+                    <option value="Selecionar Empresa">Selecionar Empresa</option>
+                </select>
+                <button id="create" class="btn-create">Criar</button>
+            </div>
+            <ul id="derpart-content" class="depart-container">
+              
+            </ul>
+        </section>
+        <section>
+            <h2 class="text-center">Usuários cadastrados</h2>
+            <ul id="users-content" class="depart-container">
+               
+                
+            </ul>
+        </section>
+    </main>
+   <script type="module" src="/src/pages/admpage/index.js"></script>
+</body>
+</html>
