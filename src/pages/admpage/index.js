@@ -182,14 +182,3 @@ const openModal = ()=> {
 }
 openModal()
 export {creatUsers,nameEmpre,render}
-/*
- <!-- <li class="card-depart">
-                    <h3>Username</h3>
-                    <p>Pleno</p>
-                    <span>Company Name</span>
-                    <div class="box-btn">
-                        <button class="edit"></button>
-                        <button class="delete"></button>
-                    </div>
-                </li> -->
-*/

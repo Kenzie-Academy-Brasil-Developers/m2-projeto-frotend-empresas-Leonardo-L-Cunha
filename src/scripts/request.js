@@ -29,6 +29,7 @@ const register = async (body) => {
             setTimeout(()=> {
                 window.location.replace("/src/pages/login/index.html")
             },4000)
+            
         }
     }catch(err){
         console.log(err)
@@ -48,6 +49,7 @@ const login = async (body) => {
         if(request.ok){
             localStorage.setItem("user",JSON.stringify(response))
             verifyUser(response.token)
+            
         }else{
             popUpErro()
         }
@@ -71,8 +73,10 @@ const verifyUser = async (verifyToken)=>{
         const response = await request.json()
         if(response.is_admin){
             window.location.replace("/src/pages/admpage/index.html")
+            
         }else{
             window.location.replace("/src/pages/userpage/index.html")
+            
         }
     }catch(err){
         console.log(err)
@@ -84,11 +88,13 @@ const dataUser = async ()=> {
         const request = await fetch(`${baseUrl}users/profile`,{
             method: "GET",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${token.token}`
             }
         })
         const response = await request.json()
         localStorage.setItem("dataUser",JSON.stringify(response))
+        return response
     }catch(err){
         console.log(err)
     }

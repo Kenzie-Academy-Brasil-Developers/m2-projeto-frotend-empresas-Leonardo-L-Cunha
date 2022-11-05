@@ -1,5 +1,6 @@
-import {dataUser} from "../../scripts/request.js";
-import {modalEditUser} from "../../scripts/modal.js"
+import {dataUser,editProfile} from "../../scripts/request.js"
+
+
 await dataUser()
 const getOut =  () => {
     const logout = document.querySelector(".btn-logout")
@@ -11,9 +12,10 @@ const getOut =  () => {
     })
 }
 
+
+
 const renderName =  async () => {
     const data  = await JSON.parse(localStorage.getItem("dataUser"))
-   
     const div = document.querySelector(".box-card-head")
     div.innerHTML = ""
     const h2 = document.createElement("h2")
@@ -55,9 +57,76 @@ const renderName =  async () => {
     divText.append(Pmail,PLevel,PKindWork,button)
     div.append(h2,divText)
 }
+const modalEditUser = () => {
+    const modal = document.createElement("dialog")
+    const divCard = document.createElement("div")
+    const h2 = document.createElement("h2")
+    const buttonClose = document.createElement("button")
+    const form = document.createElement("form")
+    const inputName = document.createElement("input")
+    const inputMail = document.createElement("input")
+    const inputPassword = document.createElement("input")
+    const buttonRegister = document.createElement("button")
+
+    divCard.classList.add("card-modal")
+    buttonClose.classList.add("btn-close")
+    form.classList.add("form-modal")
+    inputName.classList.add("inputs")
+    inputMail.classList.add("inputs")
+    inputPassword.classList.add("inputs")
+    buttonRegister.classList.add("btn-register-2")
+
+    h2.innerText = "Editar Perfil"
+    buttonClose.innerText = "X"
+    buttonRegister.innerText = "Editar Perfil"
+    buttonRegister.type = "submit"
+
+    inputName.type = "text"
+    inputName.placeholder = "Seu nome"
+    inputName.required = "true"
+    inputName.name = "username"
+    
+    inputMail.type = "email"
+    inputMail.placeholder = "Seu e-mail"
+    inputMail.required = "true"
+    inputMail.name = "email"
+
+    inputPassword.type = "password"
+    inputPassword.placeholder = "Sua senha"
+    inputPassword.required = "true"
+    inputPassword.name = "password"
+   
+
+    form.append(inputName,inputMail,inputPassword,buttonRegister)
+    divCard.append(h2,buttonClose,form)
+    modal.appendChild(divCard)
+
+    const elements = [...form.elements]
+    buttonClose.addEventListener("click", ()=> {
+        modal.close()
+    })
+    form.addEventListener("submit", async  (event) => {
+        
+        event.preventDefault()
+        const body = {}
+
+        elements.forEach((input) => {
+            if(input.tagName == "INPUT" && input.value != ""){
+                body [input.name] = input.value
+            }
+        })
+        await editProfile(body)
+        modal.close()
+        await dataUser()
+        await renderName()
+    })
+
+    return modal
 
 
-const verifyPermission =  () => {
+}
+
+const verifyPermission =  async () => {
     const user = JSON.parse(localStorage.getItem("dataUser"))
     
     if (user.error == "invalid token") {
@@ -65,8 +134,8 @@ const verifyPermission =  () => {
         window.location.replace("/src/pages/homepage/index.html")
         
     }
- 
-    renderName()
+    
+    await renderName()
     getOut()
     
 }
@@ -74,4 +143,4 @@ verifyPermission()
 
 
 
-export {renderName}
+
