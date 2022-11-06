@@ -125,6 +125,12 @@ select{
         height: 70vh;
         overflow-y: auto;
     }
+    .card-container::-webkit-scrollbar{
+        width: 5px;
+    }
+    .card-container::-webkit-scrollbar-thumb{
+        background-color: var(--color-brand-1);
+    }
     .sele{
         width: 100%;
     }
