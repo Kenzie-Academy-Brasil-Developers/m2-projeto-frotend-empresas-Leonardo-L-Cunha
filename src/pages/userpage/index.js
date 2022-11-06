@@ -1,4 +1,4 @@
-import {dataUser,editProfile} from "../../scripts/request.js"
+import {dataUser,editProfile,employerPerDepart,listSector} from "../../scripts/request.js"
 
 
 await dataUser()
@@ -50,6 +50,11 @@ const renderName =  async () => {
         h1.classList.add("not-hire")
         h1.innerText = "Voce ainda nao foi contratado"
         section.appendChild(h1)
+    }else{
+        const section = document.querySelector(".main-sect")
+        section.innerHTML = ""
+        const ul = await employeeList()
+        section.appendChild(ul)
     }
     
     divText.append(Pmail,PLevel,PKindWork,button)
@@ -140,6 +145,43 @@ const verifyPermission =  async () => {
 verifyPermission()
 
 
+const employeeList = async ()=>{
+    const empre = await listSector()
+    const data = await employerPerDepart()
+    const divCard = document.createElement("div")
+    const h1 = document.createElement("h1")
+    const ul = document.createElement("ul")
+    
+    
+    divCard.classList.add("box-card")
+    h1.classList.add("name-empre")
+    ul.classList.add("card-container")
+    console.log(empre)
+    const dados = empre.filter((element) => {
+        if(element.uuid == data[0].company_uuid)
+            {
+            return element
+        }
+    })
+   h1.innerText = `${dados[0].name}- ${data[0].name}`
+    data.forEach((element) => {
+       element.users.forEach((elem) => {
+        const li = document.createElement("li")
+        const pName = document.createElement("p")
+        const span = document.createElement("span")
+        
+        li.classList.add("card")
+        pName.classList.add("text-2")
+        pName.innerText = elem.username
+        span.innerText = elem.professional_level
+
+        li.append(pName,span)
+        ul.appendChild(li)
+        divCard.append(h1,ul)
+       })
+    })
+    return divCard
+}
 
 
 

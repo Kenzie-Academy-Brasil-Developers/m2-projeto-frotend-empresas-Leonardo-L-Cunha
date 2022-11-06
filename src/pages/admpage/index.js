@@ -106,6 +106,7 @@ const creatDepart = (body) => {
         buttonSee.classList.add("see")
         buttonEdit.classList.add("edit")
         buttonDelete.classList.add("delete")
+        h3.classList.add("text-2")
 
         buttonSee.addEventListener("click", async ()=> {
             localStorage.setItem("deparUser",JSON.stringify(element))
@@ -163,8 +164,11 @@ const creatUsers = async ()=> {
     localStorage.setItem("hired",JSON.stringify(data))
     const ul = document.getElementById("users-content")
     ul.innerHTML = ""
-
+   
+  
     data.forEach((element) => {
+        
+        if(element.username != "ADMIN"){
         const li = document.createElement("li")
         const h3 = document.createElement("h3")
         const p = document.createElement("p")
@@ -175,9 +179,9 @@ const creatUsers = async ()=> {
 
         li.classList.add("card-depart")
         divBtn.classList.add("box-btn")
-        
         buttonEdit.classList.add("edit")
         buttonDelete.classList.add("delete")
+        h3.classList.add("text-2")
 
         buttonEdit.addEventListener("click", ()=> {
             localStorage.setItem("idUser",JSON.stringify(element.uuid))
@@ -201,6 +205,7 @@ const creatUsers = async ()=> {
         divBtn.append(buttonEdit,buttonDelete)
         li.append(h3,p,span,divBtn)
         ul.appendChild(li)
+        }
     })
 }
 await creatUsers()
@@ -215,18 +220,5 @@ const openModal = ()=> {
     })
 }
 openModal()
-// const listEmployer = async (users) => {
-    
-    
-//     const ul = document.createElement("ul")
-//     ul.classList.add("card-overflow")
 
-    
-    
-
-    
- 
-//     return ul
-
-// }
 export {creatUsers,nameEmpre,render,nameNotHire}

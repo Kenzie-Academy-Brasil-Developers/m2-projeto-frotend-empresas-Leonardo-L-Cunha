@@ -307,7 +307,7 @@ const seeModal = async () => {
 
     h3.innerText = element.username
     pLevel.innerText = element.professional_level
-    span.innerText = "Company Name"
+    span.innerText = dataDepart.companies.name
     button.innerText = "Desligar"
 
     li.append(h3,pLevel,span,button)
