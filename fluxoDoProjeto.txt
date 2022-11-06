@@ -1,4 +1,0 @@
-1.analizar a tela de home, login e register do figma
-2. criar a estilizacao mobile primeiro 
-3. criar a funcionalidade da home page
-    1. criar um select que quando selecionar um setor especifico renderizar da tela 

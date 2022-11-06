@@ -53,6 +53,13 @@ nav{
     list-style: none;
     overflow-y: auto;
     flex-wrap: wrap;
+    
+}
+.depart-container::-webkit-scrollbar{
+    width: 10px;
+}
+.depart-container::-webkit-scrollbar-thumb{
+    background-color: var(--color-brand-1);
 }
 .card-depart{
     background-color: var(--color-white);
@@ -184,6 +191,12 @@ dialog{
     display: flex;
     padding: 24px;
     gap: 20px;
+}
+.card-overflow::-webkit-scrollbar{
+    width: 5px;
+}
+.card-overflow::-webkit-scrollbar-thumb{
+    background-color: var(--color-brand-1);
 }
 .card-see-modal{
     width: 306px;

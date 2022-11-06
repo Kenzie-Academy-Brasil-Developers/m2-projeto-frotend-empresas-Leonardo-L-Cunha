@@ -1,34 +1,37 @@
-.pop-container{
-    position: fixed;
-    bottom: -50px;
-    right: 0;
-    width: 441px;
-    height: 125px;
-    border: 1px solid var(--gray700);
-    padding: 20px;
-    animation: pop-Up 4000ms ease-in forwards;
-    background-color: var(--color-white);
-}
-.pop-container-erro{
-    position: fixed;
-    bottom: -50px;
-    right: 0;
-    width: 441px;
-    height: 125px;
-    border: 1px solid var(--gray700);
-    padding: 20px;
-    animation: pop-Up 4000ms ease-in forwards;
-    background-color: var(--color-red);
-}
-.pop-up{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
 
-@keyframes pop-Up {
-    0%   {right: 30px; bottom:-100px}
-    25%  {right: 30px; bottom:10px}
-    50%  {right: 30px; bottom:10px}
-    100% {right: 30px; bottom:-100px}
+@media(min-width: 730px){
+    .pop-container{
+        position: fixed;
+        bottom: -50px;
+        right: 0;
+        width: 441px;
+        height: 125px;
+        border: 1px solid var(--gray700);
+        padding: 20px;
+        animation: pop-Up 4000ms ease-in forwards;
+        background-color: var(--color-white);
+    }
+    .pop-container-erro{
+        position: fixed;
+        bottom: -50px;
+        right: 0;
+        width: 441px;
+        height: 125px;
+        border: 1px solid var(--gray700);
+        padding: 20px;
+        animation: pop-Up 4000ms ease-in forwards;
+        background-color: var(--color-red);
+    }
+    .pop-up{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    @keyframes pop-Up {
+        0%   {right: 30px; bottom:-100px}
+        25%  {right: 30px; bottom:10px}
+        50%  {right: 30px; bottom:10px}
+        100% {right: 30px; bottom:-100px}
+    }
 }
